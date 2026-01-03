@@ -152,6 +152,17 @@
           <LinkMenuItem icon={iconLogout} href={LOGOUT_URL} tinro-ignore>
             {$_('log_out')}
           </LinkMenuItem>
+          {#if commonData.branding_show_powered_by}
+            <MenuDivider />
+            <div class="powered-by-item">
+              {$_('powered_by')}
+              <a
+                href="https://mathesar.org"
+                target="_blank"
+                rel="noopener noreferrer">Mathesar</a
+              >
+            </div>
+          {/if}
         </DropdownMenu>
       {/if}
     </div>
@@ -199,5 +210,12 @@
     border-radius: var(--border-radius-m);
     display: flex;
     align-items: center;
+  }
+
+  .powered-by-item {
+    font-size: 0.8rem;
+    padding: var(--sm3) var(--sm4);
+    opacity: 0.8;
+    text-align: center;
   }
 </style>

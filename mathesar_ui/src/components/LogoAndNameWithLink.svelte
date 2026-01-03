@@ -1,6 +1,9 @@
 <script lang="ts">
   import Logo from './Logo.svelte';
   import MathesarName from './MathesarName.svelte';
+  import { preloadCommonData } from '@mathesar/utils/preloadData';
+
+  const commonData = preloadCommonData();
 
   export let href: string;
   export let compactLayout = false;
@@ -8,7 +11,9 @@
 
 <a {...$$restProps} {href} class="home-link" class:compact={compactLayout}>
   <Logo />
-  <div class="mathesar"><MathesarName /></div>
+  {#if !commonData.branding_logo_url}
+    <div class="mathesar"><MathesarName /></div>
+  {/if}
 </a>
 
 <style>

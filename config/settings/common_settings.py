@@ -341,3 +341,7 @@ LANGUAGE_COOKIE_NAME = 'display_language'
 FALLBACK_LANGUAGE = 'en'
 
 SALT_KEY = SECRET_KEY
+
+# Branding
+BRANDING_LOGO_URL = os.environ.get('BRANDING_LOGO_URL', default=None)
+BRANDING_SHOW_POWERED_BY = os.environ.get('BRANDING_SHOW_POWERED_BY', default='True') == 'True'

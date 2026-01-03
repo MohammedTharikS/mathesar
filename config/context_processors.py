@@ -16,7 +16,10 @@ def frontend_settings(request):
         'development_mode': development_mode,
         'manifest_data': manifest_data,
         'display_language': display_language,
+        'display_language': display_language,
         'include_i18n_fallback': display_language != fallback_language,
+        'branding_logo_url': settings.BRANDING_LOGO_URL,
+        'branding_show_powered_by': settings.BRANDING_SHOW_POWERED_BY,
     }
     # Only include development URL if we're in development mode.
     if frontend_settings['development_mode'] is True:

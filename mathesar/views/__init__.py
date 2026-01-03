@@ -97,6 +97,8 @@ def get_base_common_data(request):
         'current_release_tag_name': __version__,
         'is_authenticated': not request.user.is_anonymous,
         'supported_languages': dict(getattr(settings, 'LANGUAGES', [])),
+        'branding_logo_url': settings.BRANDING_LOGO_URL,
+        'branding_show_powered_by': settings.BRANDING_SHOW_POWERED_BY,
         'file_backends': get_file_backends(public_info=True),
     }
 
