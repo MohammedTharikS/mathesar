@@ -1,5 +1,6 @@
 <script lang="ts">
   // TODO: Rename this component to something that represents layout for top-level page
+  import { _ } from 'svelte-i18n';
   import AppHeader from '@mathesar/components/AppHeader.svelte';
   import { preloadCommonData } from '@mathesar/utils/preloadData';
   import { makeStyleStringFromCssVariables } from '@mathesar-component-library';
@@ -27,6 +28,14 @@
   <main class="app-layout-content" class:restrict-width={restrictWidth}>
     <slot />
   </main>
+  {#if commonData.branding_logo}
+    <div class="branding-footer">
+      {$_('powered_by')}
+      <a href="https://mathesar.org" target="_blank" rel="noopener noreferrer"
+        >Mathesar</a
+      >
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -69,5 +78,17 @@
 
   .app-layout:not(.fit-viewport) .app-layout-content {
     padding: var(--page-padding);
+  }
+
+  .branding-footer {
+    padding: var(--sm3);
+    text-align: center;
+    color: var(--color-fg-subtle-1);
+    font-size: var(--sm3);
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
   }
 </style>

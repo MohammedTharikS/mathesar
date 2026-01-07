@@ -98,6 +98,7 @@ def get_base_common_data(request):
         'is_authenticated': not request.user.is_anonymous,
         'supported_languages': dict(getattr(settings, 'LANGUAGES', [])),
         'file_backends': get_file_backends(public_info=True),
+        'branding_logo': getattr(settings, 'MATHESAR_BRANDING_LOGO', None),
     }
 
 

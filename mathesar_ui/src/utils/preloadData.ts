@@ -8,22 +8,23 @@ import { isDefinedNonNullable } from '@mathesar-component-library';
 
 type WithStatus<D> =
   | {
-      state: 'success';
-      data: D;
-    }
+    state: 'success';
+    data: D;
+  }
   | {
-      state: 'failure';
-      error: {
-        code: number;
-        message: string;
-      };
+    state: 'failure';
+    error: {
+      code: number;
+      message: string;
     };
+  };
 
 export interface BaseCommonData {
   current_release_tag_name: string;
   supported_languages: Record<string, string>;
   is_authenticated: boolean;
   file_backends: { backend: string; anonymous_access: boolean }[] | null;
+  branding_logo?: string | null;
 }
 
 export interface AuthenticatedCommonData extends BaseCommonData {
